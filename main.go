@@ -82,6 +82,10 @@ type Config struct {
 
 	// Debug turns on Carwings debug output.
 	Debug bool `json:"debug"`
+
+	// TCP Port. Allow configuration of the port the service
+	// run on.
+	TCPPort string `json:"tcp_port"`
 }
 
 func main() {
@@ -98,6 +102,7 @@ func main() {
 		HomekitPIN:            "00102003",
 		ClimateUpdateInterval: 900,
 		BatteryUpdateInterval: 900,
+		TCPPort:               "",
 	}
 
 	f, err := os.Open(configFile)
@@ -219,6 +224,7 @@ func main() {
 	hcConfig := hc.Config{
 		Pin:         config.HomekitPIN,
 		StoragePath: filepath.Join(config.StoragePath, info.Name),
+		Port:        config.TCPPort,
 	}
 	t, err := hc.NewIPTransport(hcConfig, leaf.acc)
 	if err != nil {
