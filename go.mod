@@ -3,7 +3,7 @@ module github.com/joeshaw/carwings-homecontrol
 go 1.12
 
 require (
-	github.com/brutella/hc v1.1.0
+	github.com/brutella/hc v1.2.0
 	github.com/lazzurs/carwings v0.0.1
 	golang.org/x/crypto v0.0.0-20190530122614-20be4c3c3ed5 // indirect
 	golang.org/x/net v0.0.0-20190603091049-60506f45cf65 // indirect
