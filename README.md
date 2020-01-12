@@ -68,7 +68,7 @@ the climate control fan.
 
 There is a Docker container for the service that can be run as follows
 
-    /usr/bin/docker run --rm --name %p\
+    /usr/bin/docker run --rm --name carwings-homecontrol\
      --net=host \
      -v /path/to/config.json:/etc/carwings-homecontrol/config.json:ro \
      -v /path/to/data:/home/carwings/.homecontrol/carwings/ \
