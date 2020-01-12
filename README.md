@@ -51,6 +51,31 @@ see the Leaf under "Nearby Accessories."  Tap that and enter the PIN
 entries appear in your list, one for the charging switch and one for
 the climate control fan.
 
+### Configuration options
+
+    "username" = Username you use to login to carwings (required)
+    "password" = Password you use to login to carwings (required)
+    "region" = Region to use for carwings (default: NNA)
+    "storage_path" = Path to store data (default: ~/.homecontrol/carwings/)
+    "accessory_name" = Name to call your car (default: Leaf)
+    "homekit_pin" = PIN for HomeKit (default: 00102003)
+    "climate_update_interval" = Interval to update climate status (default: 900 seconds)
+    "battery_update_interval" = Interval to update the battery status (default: 900 seconds)
+    "debug" = Turn debugging mode on (default: false)
+    "tcp_port" = TCP Port to advertise and listen on
+
+## Docker
+
+There is a Docker container for the service that can be run as follows
+
+    /usr/bin/docker run --rm --name %p\
+     --net=host \
+     -v /path/to/config.json:/etc/carwings-homecontrol/config.json:ro \
+     -v /path/to/data:/home/carwings/.homecontrol/carwings/ \
+     lazzurs/carwings-homecontrol:latest
+
+This needs to run on the host network as it uses mDNS for service advertisement/discovery.
+
 ## Contributing
 
 Issues and pull requests are welcome.  When filing a PR, please make
